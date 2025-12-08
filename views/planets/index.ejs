@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planets</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>All Planets</h1>
+      <nav class="nav-links">
+        <a href="/planets/new">+ Add New Planet</a>
+      </nav>
+      <% if (planets.length === 0) { %>
+        <div class="empty-state">
+          <p>No planets yet. Add your first planet!</p>
+        </div>
+      <% } else { %>
+        <ul class="planet-list">
+          <% planets.forEach(planet => { %>
+            <li>
+              <a href="/planets/<%= planet._id %>">
+                <%= planet.name %><% if (planet.isFavorite) { %> <span class="favorite-star">&#9733;</span><% } %>
+              </a>
+              <% if (planet.type) { %>
+                <small><%= planet.type %></small>
+              <% } %>
+            </li>
+          <% }); %>
+        </ul>
+      <% } %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,310 @@
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-text: #1a1a2e;
+  --color-text-muted: #64648c;
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-border: #e5e5e5;
+  --color-danger: #dc2626;
+  --color-danger-hover: #b91c1c;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Container */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: var(--color-surface);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+/* Typography */
+h1 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+  letter-spacing: -0.025em;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--color-text-muted);
+}
+
+small {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.back-link::before {
+  content: "← ";
+}
+
+/* Navigation */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+}
+
+.planet-list li {
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s ease;
+}
+
+.planet-list li:last-child {
+  border-bottom: none;
+}
+
+.planet-list li:hover {
+  background-color: var(--color-bg);
+}
+
+.planet-list a {
+  font-weight: 500;
+}
+
+.details-list {
+  margin: 1.5rem 0;
+}
+
+.details-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-list li:last-child {
+  border-bottom: none;
+}
+
+.details-list strong {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* Forms */
+form {
+  margin-top: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Checkbox styling */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+/* Buttons */
+button,
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:active,
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary,
+button[type="submit"] {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover,
+button[type="submit"]:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger-hover);
+}
+
+.btn-secondary {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-border);
+}
+
+/* Actions row */
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.actions form {
+  margin: 0;
+}
+
+/* Planet image */
+.planet-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: var(--radius);
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Favorite star */
+.favorite-star {
+  color: #fbbf24;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--color-text-muted);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  body {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions a,
+  .actions button {
+    text-align: center;
+  }
+}

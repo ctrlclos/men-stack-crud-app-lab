@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= planet.name %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <a href="/planets/" class="back-link">Back to Planets</a>
+      <h1><%= planet.name %><% if (planet.isFavorite) { %> <span class="favorite-star">&#9733;</span><% } %></h1>
+
+      <% if (planet.image) { %>
+        <img src="<%= planet.image %>" alt="<%= planet.name %>" class="planet-image" />
+      <% } %>
+
+      <% if (planet.description) { %>
+        <p><%= planet.description %></p>
+      <% } %>
+
+      <ul class="details-list">
+        <% if (planet.type) { %>
+          <li>
+            <strong>Type</strong>
+            <span><%= planet.type %></span>
+          </li>
+        <% } %>
+        <% if (planet.diameter) { %>
+          <li>
+            <strong>Diameter</strong>
+            <span><%= planet.diameter.toLocaleString() %> km</span>
+          </li>
+        <% } %>
+        <% if (planet.distanceFromSun) { %>
+          <li>
+            <strong>Distance from Sun</strong>
+            <span><%= planet.distanceFromSun.toLocaleString() %> million km</span>
+          </li>
+        <% } %>
+        <li>
+          <strong>Number of Moons</strong>
+          <span><%= planet.numberOfMoons %></span>
+        </li>
+        <li>
+          <strong>Has Rings</strong>
+          <span><%= planet.hasRings ? 'Yes' : 'No' %></span>
+        </li>
+      </ul>
+
+      <div class="actions">
+        <a href="/planets/<%= planet._id %>/edit" class="btn btn-secondary">Edit</a>
+        <form action="/planets/<%= planet._id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
